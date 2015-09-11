@@ -60,7 +60,7 @@ def check_for_softendings(noun):
 	# 1. long_vowels in noun[-3:] (if there are none: p1 = False)	
 	# 2. combination_vowels in noun[-3:] (if there are none, p2 = False)
 	# 3. noun == exceptions (if it is, return False)
-	with open('diminutive_exceptions', 'r') as d:
+	with open('/Users/Aagje/Python01/Projects/Dutch_Grammar/Diminutives/diminutive_exceptions.txt', 'r') as d:
 		de = d.read()
 	de = de.split('\n')
 	de = [w for w in de if w] #This should get rid of empty new lines (they conflict with p3)
@@ -141,9 +141,9 @@ def general_exceptions(noun):
 			
 
 	
-def diminutive_generator(noun):
+def generate_dimminutive(noun):
 
-	assert isinstance(noun, basestring), "Argument to diminutive_generator() should be a string."
+	assert isinstance(noun, basestring), "Argument to generate_dimminutive() should be a string."
 
 	# ends with a vowel
 	if noun[-1] in vowels or noun.endswith('ij'):
@@ -212,11 +212,11 @@ def diminutive_generator(noun):
 
 if __name__ == "__main__":
 	print "\nThe diminutive form of 'tafel' is:"
-	print diminutive_generator('tafel')	
+	print generate_dimminutive('tafel')	
 	print "\nThe diminutive form of 'bel' is:"
-	print diminutive_generator('bel')
+	print generate_dimminutive('bel')
 	print "\nThe diminutive form of 'koek' is:"
-	print diminutive_generator('koek')
+	print generate_dimminutive('koek')
 	print "\nThe diminutive form of 'boom' is:"
-	print diminutive_generator('boom')
+	print generate_dimminutive('boom')
 
