@@ -24,7 +24,6 @@
 # Source for examples, see also: Syllables in Dutch - Mieke Trommelen
 # and Dutch plural rules on Dutchgrammar.com
 
-import pudb
 
 long_vowels = "aa", "ee", "ie", "oo", "uu"
 short_vowels = 'a', 'e', 'i', 'o', 'u'
@@ -142,7 +141,6 @@ def general_exceptions(noun):
 
 	
 def generate_diminutive(noun):
-	# pudb.set_trace()
 
 	assert isinstance(noun, basestring), "Argument to generate_diminutive() should be a string."
 
