@@ -60,7 +60,7 @@ def check_for_softendings(noun):
 	# 1. long_vowels in noun[-3:] (if there are none: p1 = False)	
 	# 2. combination_vowels in noun[-3:] (if there are none, p2 = False)
 	# 3. noun == exceptions (if it is, return False)
-	with open('/Users/Aagje/Python01/Projects/Dutch_Grammar/Diminutives/diminutive_exceptions.txt', 'r') as d:
+	with open('/Users/Aagje/Python01/Projects/Dutch_Grammar/Diminutives/diminutive_exceptions', 'r') as d:
 		de = d.read()
 	de = de.split('\n')
 	de = [w for w in de if w] #This should get rid of empty new lines (they conflict with p3)
