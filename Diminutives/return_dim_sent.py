@@ -23,6 +23,9 @@ def return_dim_sent(sent):
 	for word, pos in parsed.split()[0]:
 	    if pos == 'NN' and not word.endswith('je'):    # If the word is a noun...
 	        dim = dg.generate_diminutive(word)
+	        
+	        if new_sent[-1] == 'de': new_sent[-1] = 'het'	# correcting for article. Not perfect though.	
+	        
 	        new_sent.append(dim)
 	    elif pos == 'NNS' and not word.endswith('jes'): # If the word is a noun in plural...
 	        root = singularize(word)
@@ -30,8 +33,7 @@ def return_dim_sent(sent):
 	        new_sent.append(dim + "s")
 	    else:
 	        new_sent.append(word)
-    
-    
+        
 
 	return " ".join(new_sent)
 
@@ -45,4 +47,5 @@ if __name__ == "__main__":
 
 	print return_dim_sent(sent)
 	print return_dim_sent(sent1)
+	print return_dim_sent('De premier wil de kroon.')
 
