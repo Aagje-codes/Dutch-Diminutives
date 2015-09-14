@@ -24,7 +24,7 @@
 # Source for examples, see also: Syllables in Dutch - Mieke Trommelen
 # and Dutch plural rules on Dutchgrammar.com
 
-
+import pudb
 
 long_vowels = "aa", "ee", "ie", "oo", "uu"
 short_vowels = 'a', 'e', 'i', 'o', 'u'
@@ -60,7 +60,7 @@ def check_for_softendings(noun):
 	# 1. long_vowels in noun[-3:] (if there are none: p1 = False)	
 	# 2. combination_vowels in noun[-3:] (if there are none, p2 = False)
 	# 3. noun == exceptions (if it is, return False)
-	with open('/Users/Aagje/Python01/Projects/Dutch_Grammar/Diminutives/diminutive_exceptions', 'r') as d:
+	with open('diminutive_exceptions', 'r') as d:
 		de = d.read()
 	de = de.split('\n')
 	de = [w for w in de if w] #This should get rid of empty new lines (they conflict with p3)
@@ -118,11 +118,11 @@ def vowel_ending(noun):
 def ing(noun):
 	p1 = False
 
-	exceptions = [
-	'ketting', 'haring', 'koning', 'houding', 'mededeling', 'woning', 'training', 'verwarming'
-	]
+	with open('ing_exceptions', 'r') as e:
+		exceptions = e.read()
+	
 	for w in exceptions:
-		if w == noun:
+		if w == noun or noun.endswith(w):
 			p1 = True
 		
 	return p1
@@ -142,18 +142,19 @@ def general_exceptions(noun):
 
 	
 def generate_diminutive(noun):
+	# pudb.set_trace()
 
 	assert isinstance(noun, basestring), "Argument to generate_diminutive() should be a string."
 
 	# ends with a vowel
 	if noun[-1] in vowels or noun.endswith('ij'):
-		if vowel_ending(noun):
+		if vowel_ending(noun):		# If the noun ends in a long vowel or combination vowel
 			noun = tje(noun)
-		elif not general_exceptions(noun):
+		elif not general_exceptions(noun): # if the nouns contain some of the general exceptions (blad - blaadje)
 			if noun[-1] == 'i':
 				noun = noun + 'e'
 				noun = tje(noun) 	
-			elif noun == 'tante':
+			elif noun == 'tante' or noun == 'kazerne' or noun == 'garde' or noun == 'rancune':
 				noun = tje(noun)
 			else:
 				noun = noun + noun[-1]
@@ -169,9 +170,9 @@ def generate_diminutive(noun):
 	
 	#returns words ending in 'n', 'l' 'r', 'm' with a short vowel in the final syllable with the correct -etje ending
 	if noun.endswith(soft_endings):
-		if check_for_softendings(noun):
+		if check_for_softendings(noun) and not noun.endswith('ium'):
 			noun = C_etje(noun)
-		elif noun.endswith('m'):
+		elif noun.endswith('m') :
 			noun = pje(noun)
 		elif noun.endswith('g'):
 			noun = je(noun)	
@@ -211,12 +212,16 @@ def generate_diminutive(noun):
 
 
 if __name__ == "__main__":
-	print "\nThe diminutive form of 'tafel' is:"
-	print generate_diminutive('tafel')	
-	print "\nThe diminutive form of 'bel' is:"
-	print generate_diminutive('bel')
-	print "\nThe diminutive form of 'koek' is:"
-	print generate_diminutive('koek')
-	print "\nThe diminutive form of 'boom' is:"
-	print generate_diminutive('boom')
+	# print "\nThe diminutive form of 'tafel' is:"
+	# print generate_diminutive('tafel')	
+	# print "\nThe diminutive form of 'bel' is:"
+	# print generate_diminutive('bel')
+	# print "\nThe diminutive form of 'koek' is:"
+	# print generate_diminutive('koek')
+	# print "\nThe diminutive form of 'boom' is:"
+	# print generate_diminutive('boom')
+	print generate_diminutive('podium')
+
+	
+
 
