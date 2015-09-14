@@ -141,9 +141,9 @@ def general_exceptions(noun):
 			
 
 	
-def generate_dimminutive(noun):
+def generate_diminutive(noun):
 
-	assert isinstance(noun, basestring), "Argument to generate_dimminutive() should be a string."
+	assert isinstance(noun, basestring), "Argument to generate_diminutive() should be a string."
 
 	# ends with a vowel
 	if noun[-1] in vowels or noun.endswith('ij'):
@@ -212,11 +212,11 @@ def generate_dimminutive(noun):
 
 if __name__ == "__main__":
 	print "\nThe diminutive form of 'tafel' is:"
-	print generate_dimminutive('tafel')	
+	print generate_diminutive('tafel')	
 	print "\nThe diminutive form of 'bel' is:"
-	print generate_dimminutive('bel')
+	print generate_diminutive('bel')
 	print "\nThe diminutive form of 'koek' is:"
-	print generate_dimminutive('koek')
+	print generate_diminutive('koek')
 	print "\nThe diminutive form of 'boom' is:"
-	print generate_dimminutive('boom')
+	print generate_diminutive('boom')
 
