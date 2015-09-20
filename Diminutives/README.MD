@@ -1,8 +1,8 @@
 This is an attempt to create a Dutch Diminutives Generator for Python 2.7
 
 The return_dim_sent function takes in a Dutch sentence and uses the CLiPS Pattern module for Dutch to find the 
-nouns (singular or plural) and return the sentence with the nouns replaces a their diminutives. 
-Corrects for articles when the article is directly preceeing the noun, but not otherwise. 
+nouns (singular or plural) and return the sentence with the nouns replaced as their diminutives. 
+Corrects for articles when the article is directly precedeing the noun, but not otherwise. 
 
 
 Tests: 
