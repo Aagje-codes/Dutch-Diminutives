@@ -4,6 +4,7 @@ The return_dim_sent function takes in a Dutch sentence and uses the CLiPS Patter
 nouns (singular or plural) and return the sentence with the nouns replaced as their diminutives. 
 Corrects for articles when the article is directly precedeing the noun, but not otherwise. 
 
+***
 
 Tests: 
 + generate_diminutive('boek') -> boekje
