@@ -6,10 +6,10 @@ Corrects for articles when the article is directly precedeing the noun, but not 
 
 
 Tests: 
-* generate_diminutive('boek') -> boekje
-* generate_diminutive('tafel') -> tafeltje
-* generate_diminutive('bel') -> belletje
++ generate_diminutive('boek') -> boekje
++ generate_diminutive('tafel') -> tafeltje
++ generate_diminutive('bel') -> belletje
 
-* return_dim_sent("De premier wil de kroon.") -> De premier wil het kroontje .
-* return_dim_sent("De mussen ziten op het dak") -> De musjes zitten op het dakje .
-* return_dim_sent("De katten liggen in de zon") -> De katjes liggen in het zonnetje .
++ return_dim_sent("De premier wil de kroon.") -> De premier wil het kroontje .
++ return_dim_sent("De mussen ziten op het dak") -> De musjes zitten op het dakje .
++ return_dim_sent("De katten liggen in de zon") -> De katjes liggen in het zonnetje .
